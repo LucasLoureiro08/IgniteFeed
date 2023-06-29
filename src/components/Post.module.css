@@ -101,7 +101,7 @@
     padding: 1rem 0 0 1rem
 }
 
-.commentArea button {
+.commentArea button[type=submit] {
     display: block;
     font-size: 1rem;
     font-weight: bold;
@@ -114,8 +114,13 @@
     transition: background-color 1s;
 }
 
-.commentArea button:hover {
+.commentArea button[type=submit]:hover{
     background-color: var(--green-300);
+}
+
+.commentArea button[type=submit]:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
 .commentList {

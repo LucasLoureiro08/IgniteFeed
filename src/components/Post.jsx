@@ -46,6 +46,8 @@ export function Post({ author, publishedAt, content }) {
         setComments(commentsWithoutDeletedOne);
     }
 
+    const WhenNewCommentTextIsEmpty = newCommentText.length === 0
+
     return (
         <article className={styles.post}>
             <header className={styles.postHeader}>
@@ -79,12 +81,14 @@ export function Post({ author, publishedAt, content }) {
                 <textarea 
                     name='comment'
                     value={newCommentText}
-                    
                     onChange={handleNewCommentChange}
                     placeholder='Deixe seu comentário'           
                 />
                 <footer>
-                    <button type='submit'>
+                    <button 
+                        type='submit'
+                        disabled={WhenNewCommentTextIsEmpty}
+                    >
                         Publicar
                     </button>
                 </footer>
